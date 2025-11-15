@@ -10,3 +10,22 @@ trainable params: 2,293,760 || all params: 598,343,680 || trainable%: 0.3834
 Warning: ONNX model not found at tiny.onnx. Using fallback heuristic.
 === [TRIAL RUN] PASSED for proposed-iter1-Qwen3-0.6B-gsm8k at Sat Nov 15 08:16:04 AM UTC 2025 ===
 
+=== [UV SYNC] Start at Sat Nov 15 08:17:11 UTC 2025 ===
+=== [UV SYNC] Finished successfully at Sat Nov 15 08:17:20 UTC 2025 ===
+=== [TRIAL RUN] Start for comparative-1-iter1-Qwen3-0.6B-gsm8k at Sat Nov 15 08:17:20 UTC 2025 ===
+[Main] TRIAL mode activated (fast checks)
+[Main] Launching: /mnt/home/toma/KRK-039/_work/airas-20251115-064156-matsuzawa/airas-20251115-064156-matsuzawa/.venv/bin/python3 -u -m src.train run=comparative-1-iter1-Qwen3-0.6B-gsm8k results_dir=.research/iteration1 mode=trial
+[Mode] TRIAL – quick check (1 epoch, limited data, wandb disabled)
+[2025-11-15 17:18:09,393][transformers.configuration_utils][WARNING] - `torch_dtype` is deprecated! Use `dtype` instead!
+[2025-11-15 17:18:26,912][accelerate.utils.modeling][INFO] - Based on the current allocation process, no modules could be assigned to the following devices due to insufficient memory:
+  - 0: 342626816 bytes required
+  - 1: 311164928 bytes required
+  - 2: 311164928 bytes required
+  - 3: 311164928 bytes required
+  - 4: 311164928 bytes required
+  - 5: 311164928 bytes required
+  - 6: 311164928 bytes required
+These minimum requirements are specific to this allocation attempt and may vary. Consider increasing the available memory for these devices to at least the specified minimum, or adjusting the model config.
+trainable params: 2,293,760 || all params: 598,343,680 || trainable%: 0.3834
+=== [TRIAL RUN] PASSED for comparative-1-iter1-Qwen3-0.6B-gsm8k at Sat Nov 15 08:19:01 UTC 2025 ===
+

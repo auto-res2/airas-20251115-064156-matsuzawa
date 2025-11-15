@@ -225,4 +225,231 @@ huggingface/tokenizers: The current process just got forked, after parallelism h
 To disable this warning, you can either:
 	- Avoid using `tokenizers` before the fork if possible
 	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
-Test loss=0.0932:   0%|          | 0/25 [00:00<?, ?it/s]Test loss=0.0932:   4%|▍         | 1/25 [00:00<00:07,  3.11it/s]Test loss=0.2220:   4%|▍         | 1/25 [00:00<00:07,  3.11it/s]Test loss=0.2204:   4%|▍         | 1/25 [00:00<00:07,  3.11it/s]Test loss=0.2204:  12%|█▏        | 3/25 [00:00<00:03,  6.84it/s]Test loss=0.2173:  12%|█▏        | 3/25 [00:00<00:03,  6.84it/s]Test loss=0.1949:  12%|█▏        | 3/25 [00:00<00:03,  6.84it/s]Test loss=0.1949:  20%|██        | 5/25 [00:00<00:02,  8.72it/s]Test loss=0.1850:  20%|██        | 5/25 [00:00<00:02,  8.72it/s]Test loss=0.1853:  20%|██        | 5/25 [00:00<00:02,  8.72it/s]Test loss=0.1853:  28%|██▊       | 7/25 [00:00<00:01,  9.76it/s]Test loss=0.2026:  28%|██▊       | 7/25 [00:00<00:01,  9.76it/s]Test loss=0.1953:  28%|██▊       | 7/25 [00:01<00:01,  9.76it/s]Test loss=0.1953:  36%|███▌      | 9/25 [00:01<00:01, 10.39it/s]Test loss=0.2048:  36%|███▌      | 9/25 [00:01<00:01, 10.39it/s]Test loss=0.2095:  36%|███▌      | 9/25 [00:01<00:01, 10.39it/s]Test loss=0.2095:  44%|████▍     | 11/25 [00:01<00:01, 10.90it/s]Test loss=0.2106:  44%|████▍     | 11/25 [00:01<00:01, 10.90it/s]Test loss=0.2064:  44%|████▍     | 11/25 [00:01<00:01, 10.90it/s]Test loss=0.2064:  52%|█████▏    | 13/25 [00:01<00:01, 11.78it/s]Test loss=0.2070:  52%|█████▏    | 13/25 [00:01<00:01, 11.78it/s]Test loss=0.2101:  52%|█████▏    | 13/25 [00:01<00:01, 11.78it/s]Test loss=0.2101:  60%|██████    | 15/25 [00:01<00:00, 12.76it/s]Test loss=0.2057:  60%|██████    | 15/25 [00:01<00:00, 12.76it/s]Test loss=0.2052:  60%|██████    | 15/25 [00:01<00:00, 12.76it/s]Test loss=0.2052:  68%|██████▊   | 17/25 [00:01<00:00, 12.44it/s]Test loss=0.2023:  68%|██████▊   | 17/25 [00:01<00:00, 12.44it/s]Test loss=0.2055:  68%|██████▊   | 17/25 [00:01<00:00, 12.44it/s]Test loss=0.2055:  76%|███████▌  | 19/25 [00:01<00:00, 12.23it/s]Test loss=0.2009:  76%|███████▌  | 19/25 [00:01<00:00, 12.23it/s]Test loss=0.2026:  76%|███████▌  | 19/25 [00:01<00:00, 12.23it/s]Test loss=0.2026:  84%|████████▍ | 21/25 [00:01<00:00, 12.09it/s]Test loss=0.2001:  84%|████████▍ | 21/25 [00:02<00:00, 12.09it/s]Test loss=0.1977:  84%|████████▍ | 21/25 [00:02<00:00, 12.09it/s]Test loss=0.1977:  92%|█████████▏| 23/25 [00:02<00:00, 12.00it/s]Test loss=0.1981:  92%|█████████▏| 23/25 [00:02<00:00, 12.00it/s]Test loss=0.1976:  92%|█████████▏| 23/25 [00:02<00:00, 12.00it/s]Test loss=0.1976: 100%|██████████| 25/25 [00:02<00:00, 11.93it/s]                                                                 
+Test loss=0.0932:   0%|          | 0/25 [00:00<?, ?it/s]Test loss=0.0932:   4%|▍         | 1/25 [00:00<00:07,  3.11it/s]Test loss=0.2220:   4%|▍         | 1/25 [00:00<00:07,  3.11it/s]Test loss=0.2204:   4%|▍         | 1/25 [00:00<00:07,  3.11it/s]Test loss=0.2204:  12%|█▏        | 3/25 [00:00<00:03,  6.84it/s]Test loss=0.2173:  12%|█▏        | 3/25 [00:00<00:03,  6.84it/s]Test loss=0.1949:  12%|█▏        | 3/25 [00:00<00:03,  6.84it/s]Test loss=0.1949:  20%|██        | 5/25 [00:00<00:02,  8.72it/s]Test loss=0.1850:  20%|██        | 5/25 [00:00<00:02,  8.72it/s]Test loss=0.1853:  20%|██        | 5/25 [00:00<00:02,  8.72it/s]Test loss=0.1853:  28%|██▊       | 7/25 [00:00<00:01,  9.76it/s]Test loss=0.2026:  28%|██▊       | 7/25 [00:00<00:01,  9.76it/s]Test loss=0.1953:  28%|██▊       | 7/25 [00:01<00:01,  9.76it/s]Test loss=0.1953:  36%|███▌      | 9/25 [00:01<00:01, 10.39it/s]Test loss=0.2048:  36%|███▌      | 9/25 [00:01<00:01, 10.39it/s]Test loss=0.2095:  36%|███▌      | 9/25 [00:01<00:01, 10.39it/s]Test loss=0.2095:  44%|████▍     | 11/25 [00:01<00:01, 10.90it/s]Test loss=0.2106:  44%|████▍     | 11/25 [00:01<00:01, 10.90it/s]Test loss=0.2064:  44%|████▍     | 11/25 [00:01<00:01, 10.90it/s]Test loss=0.2064:  52%|█████▏    | 13/25 [00:01<00:01, 11.78it/s]Test loss=0.2070:  52%|█████▏    | 13/25 [00:01<00:01, 11.78it/s]Test loss=0.2101:  52%|█████▏    | 13/25 [00:01<00:01, 11.78it/s]Test loss=0.2101:  60%|██████    | 15/25 [00:01<00:00, 12.76it/s]Test loss=0.2057:  60%|██████    | 15/25 [00:01<00:00, 12.76it/s]Test loss=0.2052:  60%|██████    | 15/25 [00:01<00:00, 12.76it/s]Test loss=0.2052:  68%|██████▊   | 17/25 [00:01<00:00, 12.44it/s]Test loss=0.2023:  68%|██████▊   | 17/25 [00:01<00:00, 12.44it/s]Test loss=0.2055:  68%|██████▊   | 17/25 [00:01<00:00, 12.44it/s]Test loss=0.2055:  76%|███████▌  | 19/25 [00:01<00:00, 12.23it/s]Test loss=0.2009:  76%|███████▌  | 19/25 [00:01<00:00, 12.23it/s]Test loss=0.2026:  76%|███████▌  | 19/25 [00:01<00:00, 12.23it/s]Test loss=0.2026:  84%|████████▍ | 21/25 [00:01<00:00, 12.09it/s]Test loss=0.2001:  84%|████████▍ | 21/25 [00:02<00:00, 12.09it/s]Test loss=0.1977:  84%|████████▍ | 21/25 [00:02<00:00, 12.09it/s]Test loss=0.1977:  92%|█████████▏| 23/25 [00:02<00:00, 12.00it/s]Test loss=0.1981:  92%|█████████▏| 23/25 [00:02<00:00, 12.00it/s]Test loss=0.1976:  92%|█████████▏| 23/25 [00:02<00:00, 12.00it/s]Test loss=0.1976: 100%|██████████| 25/25 [00:02<00:00, 11.93it/s]                                                                 Using CPython 3.11.14
+Creating virtual environment at: .venv
+Resolved 138 packages in 765ms
+Installed 104 packages in 7.90s
+ + accelerate==1.11.0
+ + aiohappyeyeballs==2.6.1
+ + aiohttp==3.13.2
+ + aiosignal==1.4.0
+ + alembic==1.17.2
+ + annotated-types==0.7.0
+ + antlr4-python3-runtime==4.9.3
+ + anyio==4.11.0
+ + attrs==25.4.0
+ + bitsandbytes==0.48.2
+ + certifi==2025.11.12
+ + charset-normalizer==3.4.4
+ + click==8.3.0
+ + coloredlogs==15.0.1
+ + colorlog==6.10.1
+ + contourpy==1.3.3
+ + cycler==0.12.1
+ + datasets==4.4.1
+ + dill==0.4.0
+ + filelock==3.20.0
+ + flatbuffers==25.9.23
+ + fonttools==4.60.1
+ + frozenlist==1.8.0
+ + fsspec==2025.10.0
+ + gitdb==4.0.12
+ + gitpython==3.1.45
+ + greenlet==3.2.4
+ + h11==0.16.0
+ + hf-xet==1.2.0
+ + httpcore==1.0.9
+ + httpx==0.28.1
+ + huggingface-hub==0.36.0
+ + humanfriendly==10.0
+ + hydra-core==1.3.2
+ + idna==3.11
+ + jinja2==3.1.6
+ + joblib==1.5.2
+ + kiwisolver==1.4.9
+ + mako==1.3.10
+ + markupsafe==3.0.3
+ + matplotlib==3.10.7
+ + mpmath==1.3.0
+ + multidict==6.7.0
+ + multiprocess==0.70.18
+ + networkx==3.5
+ + numpy==2.3.4
+ + nvidia-cublas-cu12==12.8.4.1
+ + nvidia-cuda-cupti-cu12==12.8.90
+ + nvidia-cuda-nvrtc-cu12==12.8.93
+ + nvidia-cuda-runtime-cu12==12.8.90
+ + nvidia-cudnn-cu12==9.10.2.21
+ + nvidia-cufft-cu12==11.3.3.83
+ + nvidia-cufile-cu12==1.13.1.3
+ + nvidia-curand-cu12==10.3.9.90
+ + nvidia-cusolver-cu12==11.7.3.90
+ + nvidia-cusparse-cu12==12.5.8.93
+ + nvidia-cusparselt-cu12==0.7.1
+ + nvidia-nccl-cu12==2.27.5
+ + nvidia-nvjitlink-cu12==12.8.93
+ + nvidia-nvshmem-cu12==3.3.20
+ + nvidia-nvtx-cu12==12.8.90
+ + omegaconf==2.3.0
+ + onnxruntime-gpu==1.23.2
+ + optuna==4.6.0
+ + packaging==25.0
+ + pandas==2.3.3
+ + peft==0.18.0
+ + pillow==12.0.0
+ + platformdirs==4.5.0
+ + propcache==0.4.1
+ + protobuf==6.33.1
+ + psutil==7.1.3
+ + pyarrow==22.0.0
+ + pydantic==2.12.4
+ + pydantic-core==2.41.5
+ + pyparsing==3.2.5
+ + python-dateutil==2.9.0.post0
+ + pytz==2025.2
+ + pyyaml==6.0.3
+ + regex==2025.11.3
+ + requests==2.32.5
+ + safetensors==0.6.2
+ + scikit-learn==1.7.2
+ + scipy==1.16.3
+ + seaborn==0.13.2
+ + sentry-sdk==2.44.0
+ + six==1.17.0
+ + smmap==5.0.2
+ + sniffio==1.3.1
+ + sqlalchemy==2.0.44
+ + sympy==1.14.0
+ + threadpoolctl==3.6.0
+ + tokenizers==0.22.1
+ + torch==2.9.1
+ + tqdm==4.67.1
+ + transformers==4.57.1
+ + triton==3.5.1
+ + typing-extensions==4.15.0
+ + typing-inspection==0.4.2
+ + tzdata==2025.2
+ + urllib3==2.5.0
+ + wandb==0.23.0
+ + xxhash==3.6.0
+ + yarl==1.22.0
+/mnt/home/toma/KRK-039/_work/airas-20251115-064156-matsuzawa/airas-20251115-064156-matsuzawa/src/main.py:10: UserWarning: 
+The version_base parameter is not specified.
+Please specify a compatability version level, or None.
+Will assume defaults for version 1.1
+  @hydra.main(config_path="../config", config_name="config")
+/mnt/home/toma/KRK-039/_work/airas-20251115-064156-matsuzawa/airas-20251115-064156-matsuzawa/.venv/lib/python3.11/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
+See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
+  ret = run_job(
+/mnt/home/toma/KRK-039/_work/airas-20251115-064156-matsuzawa/airas-20251115-064156-matsuzawa/src/train.py:348: UserWarning: 
+The version_base parameter is not specified.
+Please specify a compatability version level, or None.
+Will assume defaults for version 1.1
+  @hydra.main(config_path="../config", config_name="config")
+/mnt/home/toma/KRK-039/_work/airas-20251115-064156-matsuzawa/airas-20251115-064156-matsuzawa/.venv/lib/python3.11/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
+See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
+  ret = run_job(
+`torch_dtype` is deprecated! Use `dtype` instead!
+Generating train split:   0%|          | 0/7473 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 7473/7473 [00:00<00:00, 82106.39 examples/s]
+Generating test split:   0%|          | 0/1319 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 1319/1319 [00:00<00:00, 125196.02 examples/s]
+Map:   0%|          | 0/7099 [00:00<?, ? examples/s]Map:  24%|██▎       | 1684/7099 [00:00<00:00, 16708.36 examples/s]Map:  49%|████▊     | 3453/7099 [00:00<00:00, 17281.93 examples/s]Map:  73%|███████▎  | 5189/7099 [00:00<00:00, 17312.84 examples/s]Map:  98%|█████████▊| 6941/7099 [00:00<00:00, 17389.21 examples/s]Map: 100%|██████████| 7099/7099 [00:00<00:00, 15813.07 examples/s]
+Map:   0%|          | 0/374 [00:00<?, ? examples/s]Map: 100%|██████████| 374/374 [00:00<00:00, 10225.08 examples/s]
+Map:   0%|          | 0/7099 [00:00<?, ? examples/s]Map:  14%|█▍        | 1000/7099 [00:00<00:03, 1947.15 examples/s]Map:  28%|██▊       | 2000/7099 [00:00<00:02, 2049.63 examples/s]Map:  42%|████▏     | 3000/7099 [00:01<00:01, 2092.36 examples/s]Map:  56%|█████▋    | 4000/7099 [00:01<00:01, 2131.58 examples/s]Map:  70%|███████   | 5000/7099 [00:02<00:00, 2146.75 examples/s]Map:  85%|████████▍ | 6000/7099 [00:02<00:00, 2061.98 examples/s]Map:  99%|█████████▊| 7000/7099 [00:03<00:00, 2024.50 examples/s]Map: 100%|██████████| 7099/7099 [00:03<00:00, 2022.52 examples/s]
+Map:   0%|          | 0/374 [00:00<?, ? examples/s]Map: 100%|██████████| 374/374 [00:00<00:00, 2061.58 examples/s]Map: 100%|██████████| 374/374 [00:00<00:00, 1928.02 examples/s]
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  0%|          | 0/25 [00:00<?, ?it/s]Epoch 1 | loss=11.5435 | 1096.7 ms:   0%|          | 0/25 [00:01<?, ?it/s]Epoch 1 | loss=11.5435 | 1096.7 ms:   4%|▍         | 1/25 [00:01<00:26,  1.11s/it]Epoch 1 | loss=10.1655 | 110.6 ms:   4%|▍         | 1/25 [00:01<00:26,  1.11s/it] Epoch 1 | loss=10.1655 | 110.6 ms:   8%|▊         | 2/25 [00:01<00:12,  1.92it/s]Epoch 1 | loss=9.2859 | 99.1 ms:   8%|▊         | 2/25 [00:01<00:12,  1.92it/s]  Epoch 1 | loss=8.6526 | 103.6 ms:   8%|▊         | 2/25 [00:01<00:12,  1.92it/s]Epoch 1 | loss=8.6526 | 103.6 ms:  16%|█▌        | 4/25 [00:01<00:05,  3.86it/s]Epoch 1 | loss=7.7533 | 115.0 ms:  16%|█▌        | 4/25 [00:01<00:05,  3.86it/s]Epoch 1 | loss=7.7533 | 115.0 ms:  20%|██        | 5/25 [00:01<00:04,  4.64it/s]Epoch 1 | loss=7.1137 | 109.8 ms:  20%|██        | 5/25 [00:01<00:04,  4.64it/s]Epoch 1 | loss=7.1137 | 109.8 ms:  24%|██▍       | 6/25 [00:01<00:03,  5.41it/s]Epoch 1 | loss=6.5171 | 107.3 ms:  24%|██▍       | 6/25 [00:01<00:03,  5.41it/s]Epoch 1 | loss=6.5171 | 107.3 ms:  28%|██▊       | 7/25 [00:01<00:02,  6.18it/s]Epoch 1 | loss=5.9521 | 105.3 ms:  28%|██▊       | 7/25 [00:01<00:02,  6.18it/s]Epoch 1 | loss=5.9521 | 105.3 ms:  32%|███▏      | 8/25 [00:01<00:02,  6.87it/s]Epoch 1 | loss=5.4020 | 105.8 ms:  32%|███▏      | 8/25 [00:01<00:02,  6.87it/s]Epoch 1 | loss=5.4020 | 105.8 ms:  36%|███▌      | 9/25 [00:01<00:02,  7.47it/s]Epoch 1 | loss=4.9049 | 98.6 ms:  36%|███▌      | 9/25 [00:02<00:02,  7.47it/s] Epoch 1 | loss=4.5122 | 98.0 ms:  36%|███▌      | 9/25 [00:02<00:02,  7.47it/s]Epoch 1 | loss=4.5122 | 98.0 ms:  44%|████▍     | 11/25 [00:02<00:01,  8.50it/s]Epoch 1 | loss=4.1650 | 100.8 ms:  44%|████▍     | 11/25 [00:02<00:01,  8.50it/s]Epoch 1 | loss=4.1650 | 100.8 ms:  48%|████▊     | 12/25 [00:02<00:01,  8.80it/s]Epoch 1 | loss=3.8756 | 97.0 ms:  48%|████▊     | 12/25 [00:02<00:01,  8.80it/s] Epoch 1 | loss=3.6301 | 97.3 ms:  48%|████▊     | 12/25 [00:02<00:01,  8.80it/s]Epoch 1 | loss=3.6301 | 97.3 ms:  56%|█████▌    | 14/25 [00:02<00:01,  9.32it/s]Epoch 1 | loss=3.4095 | 97.1 ms:  56%|█████▌    | 14/25 [00:02<00:01,  9.32it/s]Epoch 1 | loss=3.2147 | 96.8 ms:  56%|█████▌    | 14/25 [00:02<00:01,  9.32it/s]Epoch 1 | loss=3.2147 | 96.8 ms:  64%|██████▍   | 16/25 [00:02<00:00,  9.65it/s]Epoch 1 | loss=3.0407 | 102.1 ms:  64%|██████▍   | 16/25 [00:02<00:00,  9.65it/s]Epoch 1 | loss=3.0407 | 102.1 ms:  68%|██████▊   | 17/25 [00:02<00:00,  9.57it/s]Epoch 1 | loss=2.8856 | 97.5 ms:  68%|██████▊   | 17/25 [00:02<00:00,  9.57it/s] Epoch 1 | loss=2.7427 | 97.2 ms:  68%|██████▊   | 17/25 [00:02<00:00,  9.57it/s]Epoch 1 | loss=2.7427 | 97.2 ms:  76%|███████▌  | 19/25 [00:02<00:00,  9.76it/s]Epoch 1 | loss=2.6165 | 97.1 ms:  76%|███████▌  | 19/25 [00:03<00:00,  9.76it/s]Epoch 1 | loss=2.5085 | 97.5 ms:  76%|███████▌  | 19/25 [00:03<00:00,  9.76it/s]Epoch 1 | loss=2.5085 | 97.5 ms:  84%|████████▍ | 21/25 [00:03<00:00,  9.89it/s]Epoch 1 | loss=2.4063 | 100.2 ms:  84%|████████▍ | 21/25 [00:03<00:00,  9.89it/s]Epoch 1 | loss=2.4063 | 100.2 ms:  88%|████████▊ | 22/25 [00:03<00:00,  9.88it/s]Epoch 1 | loss=2.3087 | 101.9 ms:  88%|████████▊ | 22/25 [00:03<00:00,  9.88it/s]Epoch 1 | loss=2.3087 | 101.9 ms:  92%|█████████▏| 23/25 [00:03<00:00,  9.83it/s]Epoch 1 | loss=2.2208 | 97.9 ms:  92%|█████████▏| 23/25 [00:03<00:00,  9.83it/s] Epoch 1 | loss=2.1370 | 99.6 ms:  92%|█████████▏| 23/25 [00:03<00:00,  9.83it/s]Epoch 1 | loss=2.1370 | 99.6 ms: 100%|██████████| 25/25 [00:03<00:00,  9.89it/s]                                                                                  0%|          | 0/25 [00:00<?, ?it/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Val loss=0.0953:   0%|          | 0/25 [00:00<?, ?it/s]Val loss=0.0953:   4%|▍         | 1/25 [00:00<00:16,  1.44it/s]Val loss=0.2320:   4%|▍         | 1/25 [00:00<00:16,  1.44it/s]Val loss=0.2294:   4%|▍         | 1/25 [00:00<00:16,  1.44it/s]Val loss=0.2239:   4%|▍         | 1/25 [00:00<00:16,  1.44it/s]Val loss=0.2239:  16%|█▌        | 4/25 [00:00<00:03,  6.03it/s]Val loss=0.2034:  16%|█▌        | 4/25 [00:00<00:03,  6.03it/s]Val loss=0.1925:  16%|█▌        | 4/25 [00:00<00:03,  6.03it/s]Val loss=0.1932:  16%|█▌        | 4/25 [00:00<00:03,  6.03it/s]Val loss=0.1932:  28%|██▊       | 7/25 [00:00<00:01, 10.30it/s]Val loss=0.2103:  28%|██▊       | 7/25 [00:00<00:01, 10.30it/s]Val loss=0.2025:  28%|██▊       | 7/25 [00:01<00:01, 10.30it/s]Val loss=0.2124:  28%|██▊       | 7/25 [00:01<00:01, 10.30it/s]Val loss=0.2124:  40%|████      | 10/25 [00:01<00:01, 13.82it/s]Val loss=0.2167:  40%|████      | 10/25 [00:01<00:01, 13.82it/s]Val loss=0.2167:  40%|████      | 10/25 [00:01<00:01, 13.82it/s]Val loss=0.2120:  40%|████      | 10/25 [00:01<00:01, 13.82it/s]Val loss=0.2120:  52%|█████▏    | 13/25 [00:01<00:00, 16.86it/s]Val loss=0.2124:  52%|█████▏    | 13/25 [00:01<00:00, 16.86it/s]Val loss=0.2146:  52%|█████▏    | 13/25 [00:01<00:00, 16.86it/s]Val loss=0.2095:  52%|█████▏    | 13/25 [00:01<00:00, 16.86it/s]Val loss=0.2095:  64%|██████▍   | 16/25 [00:01<00:00, 19.04it/s]Val loss=0.2092:  64%|██████▍   | 16/25 [00:01<00:00, 19.04it/s]Val loss=0.2068:  64%|██████▍   | 16/25 [00:01<00:00, 19.04it/s]Val loss=0.2099:  64%|██████▍   | 16/25 [00:01<00:00, 19.04it/s]Val loss=0.2099:  76%|███████▌  | 19/25 [00:01<00:00, 20.13it/s]Val loss=0.2051:  76%|███████▌  | 19/25 [00:01<00:00, 20.13it/s]Val loss=0.2064:  76%|███████▌  | 19/25 [00:01<00:00, 20.13it/s]Val loss=0.2038:  76%|███████▌  | 19/25 [00:01<00:00, 20.13it/s]Val loss=0.2038:  88%|████████▊ | 22/25 [00:01<00:00, 21.08it/s]Val loss=0.2011:  88%|████████▊ | 22/25 [00:01<00:00, 21.08it/s]Val loss=0.2013:  88%|████████▊ | 22/25 [00:01<00:00, 21.08it/s]Val loss=0.2006:  88%|████████▊ | 22/25 [00:01<00:00, 21.08it/s]Val loss=0.2006: 100%|██████████| 25/25 [00:01<00:00, 21.85it/s]                                                                  0%|          | 0/25 [00:00<?, ?it/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Test loss=0.0953:   0%|          | 0/25 [00:00<?, ?it/s]Test loss=0.0953:   4%|▍         | 1/25 [00:00<00:15,  1.54it/s]Test loss=0.2320:   4%|▍         | 1/25 [00:00<00:15,  1.54it/s]Test loss=0.2294:   4%|▍         | 1/25 [00:00<00:15,  1.54it/s]Test loss=0.2239:   4%|▍         | 1/25 [00:00<00:15,  1.54it/s]Test loss=0.2239:  16%|█▌        | 4/25 [00:00<00:03,  6.35it/s]Test loss=0.2034:  16%|█▌        | 4/25 [00:00<00:03,  6.35it/s]Test loss=0.1925:  16%|█▌        | 4/25 [00:00<00:03,  6.35it/s]Test loss=0.1932:  16%|█▌        | 4/25 [00:00<00:03,  6.35it/s]Test loss=0.1932:  28%|██▊       | 7/25 [00:00<00:01, 10.47it/s]Test loss=0.2103:  28%|██▊       | 7/25 [00:00<00:01, 10.47it/s]Test loss=0.2025:  28%|██▊       | 7/25 [00:00<00:01, 10.47it/s]Test loss=0.2124:  28%|██▊       | 7/25 [00:01<00:01, 10.47it/s]Test loss=0.2124:  40%|████      | 10/25 [00:01<00:01, 13.97it/s]Test loss=0.2167:  40%|████      | 10/25 [00:01<00:01, 13.97it/s]Test loss=0.2167:  40%|████      | 10/25 [00:01<00:01, 13.97it/s]Test loss=0.2120:  40%|████      | 10/25 [00:01<00:01, 13.97it/s]Test loss=0.2120:  52%|█████▏    | 13/25 [00:01<00:00, 16.98it/s]Test loss=0.2124:  52%|█████▏    | 13/25 [00:01<00:00, 16.98it/s]Test loss=0.2146:  52%|█████▏    | 13/25 [00:01<00:00, 16.98it/s]Test loss=0.2095:  52%|█████▏    | 13/25 [00:01<00:00, 16.98it/s]Test loss=0.2095:  64%|██████▍   | 16/25 [00:01<00:00, 19.34it/s]Test loss=0.2092:  64%|██████▍   | 16/25 [00:01<00:00, 19.34it/s]Test loss=0.2068:  64%|██████▍   | 16/25 [00:01<00:00, 19.34it/s]Test loss=0.2099:  64%|██████▍   | 16/25 [00:01<00:00, 19.34it/s]Test loss=0.2099:  76%|███████▌  | 19/25 [00:01<00:00, 21.02it/s]Test loss=0.2051:  76%|███████▌  | 19/25 [00:01<00:00, 21.02it/s]Test loss=0.2064:  76%|███████▌  | 19/25 [00:01<00:00, 21.02it/s]Test loss=0.2038:  76%|███████▌  | 19/25 [00:01<00:00, 21.02it/s]Test loss=0.2038:  88%|████████▊ | 22/25 [00:01<00:00, 22.18it/s]Test loss=0.2011:  88%|████████▊ | 22/25 [00:01<00:00, 22.18it/s]Test loss=0.2013:  88%|████████▊ | 22/25 [00:01<00:00, 22.18it/s]Test loss=0.2006:  88%|████████▊ | 22/25 [00:01<00:00, 22.18it/s]Test loss=0.2006: 100%|██████████| 25/25 [00:01<00:00, 23.17it/s]                                                                 
