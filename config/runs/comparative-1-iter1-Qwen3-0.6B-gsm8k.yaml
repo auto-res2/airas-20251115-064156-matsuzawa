@@ -1,0 +1,35 @@
+run_id: comparative-1-iter1-Qwen3-0.6B-gsm8k
+method: sketch_nac
+model:
+  name: Qwen/Qwen3-0.6B
+  lora:
+    rank: 16
+    alpha: 32
+    dropout: 0.05
+  precision: bf16
+dataset:
+  name: openai/gsm8k
+  config: main
+  max_length: 512
+  batch_size: 64
+  split:
+    train: train
+    validation_fraction: 0.05
+    test: test
+  num_workers: 8
+training:
+  epochs: 3
+  accumulation_steps: 1
+  base_learning_rate: 2e-4
+  weight_decay: 0.01
+  optimizer: AdamW
+  scheduler: sketch_nac
+  sketch_nac:
+    sketch_size_k: 64
+    sketch_rows_r: 2
+    K_stats: 100
+  gradient_clip_norm: 1.0
+  seed: 42
+  device: cuda
+optuna:
+  n_trials: 0

@@ -1,0 +1,19 @@
+run: null
+results_dir: ./results
+mode: full
+
+wandb:
+  entity: gengaru617-personal
+  project: 2025-11-15
+  mode: online  # overwritten automatically in trial mode
+
+optuna:
+  n_trials: 0
+  direction: maximize
+  metric: best_val_acc
+  search_space: {}
+
+training:
+  epochs: 3
+
+primary_metric: final_test_acc
