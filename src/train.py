@@ -201,7 +201,7 @@ def _evaluate(
 # ---------------------------------------------------------------------------
 
 def _objective(trial: optuna.Trial, base_cfg: DictConfig) -> float:
-    cfg = OmegaConf.create(OmegaConf.to_container(base_cfg, resolve=True, deepcopy=True))
+    cfg = OmegaConf.create(OmegaConf.to_container(base_cfg, resolve=True))
 
     # Sample hyper-parameters -------------------------------------------------
     for name, space in cfg.optuna.search_space.items():
