@@ -6,5 +6,82 @@
     "GSM8K fine-tuning",
     "LLM hyperparameter tuning",
     "elementary math language model"
+  ],
+  "research_study_list": [
+    {
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs"
+    },
+    {
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs"
+    },
+    {
+      "title": "QA-LoRA: Quantization-Aware Low-Rank Adaptation of Large Language Models"
+    },
+    {
+      "title": "QuanTA: Efficient High-Rank Fine-Tuning of LLMs with Quantum-Informed Tensor Adaptation"
+    },
+    {
+      "title": "Evaluating Quantized Large Language Models"
+    },
+    {
+      "title": "AutoLRS: Automatic Learning-Rate Schedule by Bayesian Optimization on the Fly"
+    },
+    {
+      "title": "Reverse engineering learned optimizers reveals known and novel mechanisms"
+    },
+    {
+      "title": "Mechanic: A Learning Rate Tuner"
+    },
+    {
+      "title": "MoMo: Momentum Models for Adaptive Learning Rates"
+    },
+    {
+      "title": "Where Do Large Learning Rates Lead Us?"
+    },
+    {
+      "title": "MetaMath: Bootstrap Your Own Mathematical Questions for Large Language Models"
+    },
+    {
+      "title": "OpenMathInstruct-1: A 1.8 Million Math Instruction Tuning Dataset"
+    },
+    {
+      "title": "OpenMathInstruct-1: A 1.8 Million Math Instruction Tuning Dataset"
+    },
+    {
+      "title": "A Careful Examination of Large Language Model Performance on Grade School Arithmetic"
+    },
+    {
+      "title": "Training Chain-of-Thought via Latent-Variable Inference"
+    },
+    {
+      "title": "HyperTuning:  Toward Adapting Large Language Models without Back-propagation"
+    },
+    {
+      "title": "Tuning Large Neural Networks via Zero-Shot Hyperparameter Transfer"
+    },
+    {
+      "title": "Large Language Models to Enhance Bayesian Optimization"
+    },
+    {
+      "title": "Revisiting Zeroth-Order Optimization for Memory-Efficient LLM Fine-Tuning: A Benchmark"
+    },
+    {
+      "title": "When Scaling Meets LLM Finetuning: The Effect of Data, Model and Finetuning Method"
+    },
+    {
+      "title": "Formal Mathematics Statement Curriculum Learning"
+    },
+    {
+      "title": "Not All Tokens Are What You Need for Pretraining"
+    },
+    {
+      "title": "Not All Tokens Are What You Need for Pretraining"
+    },
+    {
+      "title": "Do Language Models Exhibit the Same Cognitive Biases in Problem Solving as Human Learners?"
+    },
+    {
+      "title": "A Careful Examination of Large Language Model Performance on Grade School Arithmetic"
+    }
   ]
 }
