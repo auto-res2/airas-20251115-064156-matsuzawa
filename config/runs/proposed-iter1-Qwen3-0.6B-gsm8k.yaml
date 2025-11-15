@@ -11,7 +11,7 @@ dataset:
   name: openai/gsm8k
   config: main
   max_length: 512
-  batch_size: 64
+  batch_size: 4
   split:
     train: train
     validation_fraction: 0.05
@@ -19,7 +19,7 @@ dataset:
   num_workers: 8
 training:
   epochs: 3
-  accumulation_steps: 1
+  accumulation_steps: 16
   base_learning_rate: 2e-4
   weight_decay: 0.01
   optimizer: AdamW

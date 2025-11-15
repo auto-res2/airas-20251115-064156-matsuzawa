@@ -33,3 +33,11 @@ trainable params: 2,293,760 || all params: 598,343,680 || trainable%: 0.3834
 === [UV SYNC] Finished successfully at Sat Nov 15 08:21:04 UTC 2025 ===
 === [FULL EXPERIMENT] Start for proposed-iter1-Qwen3-0.6B-gsm8k at Sat Nov 15 08:21:04 UTC 2025 ===
 [Main] Launching: /mnt/home/toma/KRK-039/_work/airas-20251115-064156-matsuzawa/airas-20251115-064156-matsuzawa/.venv/bin/python3 -u -m src.train run=proposed-iter1-Qwen3-0.6B-gsm8k results_dir=.research/iteration1 mode=full
+=== [UV SYNC] Start at Sat Nov 15 08:23:47 AM UTC 2025 ===
+=== [UV SYNC] Finished successfully at Sat Nov 15 08:23:53 AM UTC 2025 ===
+=== [FULL EXPERIMENT] Start for proposed-iter1-Qwen3-0.6B-gsm8k at Sat Nov 15 08:23:53 AM UTC 2025 ===
+[Main] Launching: /home/toma/pt80-1-a-29/_work/airas-20251115-064156-matsuzawa/airas-20251115-064156-matsuzawa/.venv/bin/python3 -u -m src.train run=proposed-iter1-Qwen3-0.6B-gsm8k results_dir=.research/iteration1 mode=full
+[2025-11-15 08:24:18,733][transformers.configuration_utils][WARNING] - `torch_dtype` is deprecated! Use `dtype` instead!
+[2025-11-15 08:24:30,390][accelerate.utils.modeling][INFO] - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+trainable params: 2,293,760 || all params: 598,343,680 || trainable%: 0.3834
+Warning: ONNX model not found at tiny.onnx. Using fallback heuristic.
