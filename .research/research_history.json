@@ -799,7 +799,45 @@
     "iterations": [
       {
         "iteration_id": 1,
-        "method": "HYPERLORE (Hyper-network Learning-Rate Oracle with µTransfer)\n\nIdea: train, entirely offline, a tiny hyper-network Φ that maps cheap, size-invariant features of a LoRA layer to its optimum optimiser hyper-parameters, then freeze Φ and reuse it in any subsequent fine-tuning job.  At run-time one forward pass through Φ per layer (≪0.01 ms) replaces all analytical algebra.\n\n1.  Meta-training tasks.  Sample 10 000 GSM8K-style fine-tuning episodes on Qwen3-60 M (≈1⁄10 size) with diverse settings: LoRA ranks {8,16,32,64}, batch-sizes {8…256}, optimisers {AdamW, Lion}, quantisation {16-bit, QLoRA}.  For each episode run SKETCH-NAC for 200 steps and store the per-layer triples (λ̂, ρ = σ̂²⁄ḡ², step) together with the realised optimum (η*, β*, clip*).\n\n2.  Feature vector x  =  [ log₁₀λ̂ ,  log₁₀ρ ,  log₁₀(rank) ,  log₁₀(global step) ,  one-hot(optimiser) ].  The design is width-invariant so that µTransfer theory guarantees the optimum lies in the same region for wider nets.\n\n3.  Hyper-network Φ.  Two-layer MLP, 32 hidden units, GELU, outputs (log η, β̂=σ(·), log clip) for every layer.  Loss: ℓ = Σ_layers (‖θ_{t+1}(Φ) − θ_{t+1}(η*,β*,c*)‖₂²) measured after one update on held-out mini-batches → imitation learning.\n\n4.  µTransfer scaling.  After meta-training, freeze Φ and apply it zero-shot to Qwen3-0.6 B, 7 B, 13 B with no further tuning; only the input feature λ̂ comes from the cheap CountSketch (k=64, r=2).\n\n5.  Run-time algorithm.\n   after_backward(layer ℓ):\n       if step % K_stats==0: update CountSketch & compute λ̂ℓ, ρℓ.\n       xℓ ← features(λ̂ℓ,ρℓ,rankℓ,step,optimiser).\n       (η,β,clip)ℓ ← Φ(xℓ).\n       write into optimiser.state_dict.\n   Complexity: O(k r) for the sketch + one 32×5 matmul per layer ⇒ <0.02 ms total, independent of model size.\n\n6.  Optional few-shot recalibration.  Run three SKETCH-NAC steps, fit one scalar γ that rescales all η from Φ (minimising validation loss surrogate), freeze γ thereafter."
+        "method": "HYPERLORE (Hyper-network Learning-Rate Oracle with µTransfer)\n\nIdea: train, entirely offline, a tiny hyper-network Φ that maps cheap, size-invariant features of a LoRA layer to its optimum optimiser hyper-parameters, then freeze Φ and reuse it in any subsequent fine-tuning job.  At run-time one forward pass through Φ per layer (≪0.01 ms) replaces all analytical algebra.\n\n1.  Meta-training tasks.  Sample 10 000 GSM8K-style fine-tuning episodes on Qwen3-60 M (≈1⁄10 size) with diverse settings: LoRA ranks {8,16,32,64}, batch-sizes {8…256}, optimisers {AdamW, Lion}, quantisation {16-bit, QLoRA}.  For each episode run SKETCH-NAC for 200 steps and store the per-layer triples (λ̂, ρ = σ̂²⁄ḡ², step) together with the realised optimum (η*, β*, clip*).\n\n2.  Feature vector x  =  [ log₁₀λ̂ ,  log₁₀ρ ,  log₁₀(rank) ,  log₁₀(global step) ,  one-hot(optimiser) ].  The design is width-invariant so that µTransfer theory guarantees the optimum lies in the same region for wider nets.\n\n3.  Hyper-network Φ.  Two-layer MLP, 32 hidden units, GELU, outputs (log η, β̂=σ(·), log clip) for every layer.  Loss: ℓ = Σ_layers (‖θ_{t+1}(Φ) − θ_{t+1}(η*,β*,c*)‖₂²) measured after one update on held-out mini-batches → imitation learning.\n\n4.  µTransfer scaling.  After meta-training, freeze Φ and apply it zero-shot to Qwen3-0.6 B, 7 B, 13 B with no further tuning; only the input feature λ̂ comes from the cheap CountSketch (k=64, r=2).\n\n5.  Run-time algorithm.\n   after_backward(layer ℓ):\n       if step % K_stats==0: update CountSketch & compute λ̂ℓ, ρℓ.\n       xℓ ← features(λ̂ℓ,ρℓ,rankℓ,step,optimiser).\n       (η,β,clip)ℓ ← Φ(xℓ).\n       write into optimiser.state_dict.\n   Complexity: O(k r) for the sketch + one 32×5 matmul per layer ⇒ <0.02 ms total, independent of model size.\n\n6.  Optional few-shot recalibration.  Run three SKETCH-NAC steps, fit one scalar γ that rescales all η from Φ (minimising validation loss surrogate), freeze γ thereafter.",
+        "experimental_design": {
+          "experiment_summary": "The experiment compares the offline-trained hyper-network scheduler HYPERLORE against the currently best analytic scheduler (SKETCH-NAC) during LoRA fine-tuning of a 0.6-billion-parameter Qwen3 model on the GSM8K math-reasoning benchmark.  \n\nWorkflow\n1. Pre-requisites: download the frozen 3 kB ONNX file tiny.onnx that contains the two-layer 32-hidden-unit MLP Φ produced by the meta-training procedure described under “proposed_method”.  \n2. Baseline fine-tune: run the official SKETCH-NAC implementation for three training epochs; log GSM8K test accuracy every 1 000 steps, average wall-clock step time (ms) on a single A100-80 GB and, separately, on an 8×RTX-4090 node, plus peak GPU memory.  \n3. Proposed fine-tune: plug the HyperLore class (see code snippet in the prompt) into the training loop so that after every backward pass each LoRA layer receives (η,β,clip) from Φ; run for the same three epochs and record identical metrics.  \n4. Hyper-parameter search (only for HYPERLORE): explore three values of the sketch size k and scalar γ for optional few-shot recalibration; choose the setting with the best validation accuracy.  \n5. Analysis: report mean and standard deviation over three random seeds for (a) GSM8K accuracy after three epochs, (b) mean step time, (c) peak GPU RAM.  \n\nA win is declared if HYPERLORE reaches ≥99 % of SKETCH-NAC accuracy while reducing mean step time by ≥15 %.",
+          "evaluation_metrics": [
+            "GSM8K Accuracy (%)",
+            "Mean Step-Time (ms)",
+            "Peak GPU RAM (GB)",
+            "1. GSM8K accuracy (%) after 3 epochs  2. Mean step-time (ms)"
+          ],
+          "proposed_method": "HYPERLORE: a frozen, size-invariant hyper-network Φ that predicts per-layer optimiser hyper-parameters (learning-rate η, second-moment coefficient β, gradient-clip threshold) from cheap curvature statistics and contextual features.  \n\nTheoretical insight: µTransfer says that after normalising by width, curvature statistics (λ̂,ρ) occupy the same region across model scales, so an MLP trained on a 60 M proxy can generalise to a 0.6 B or 7 B model.  \n\nMeta-training (done once, offline): 10 000 short SKETCH-NAC fine-tuning episodes on Qwen3-60 M with varying LoRA rank, batch size, optimiser (AdamW vs Lion) and precision.  At every step, store (λ̂,ρ,rank,step,opt) plus the analytically derived optimum (η*,β*,clip*).  Φ (2-layer, 32 hidden, GELU) is trained by imitation learning to minimise the ℓ2 distance of the next parameters updated with its outputs versus the analytic optimum.  \n\nRun-time algorithm (online during target fine-tuning):  \n1. Every K_stats steps compute CountSketch (k×r) statistics to refresh λ̂,ρ.  \n2. Build 5-dim log-scaled feature vector x.  \n3. One ONNX forward pass (≈8 µs) returns (log η,β,log clip).  \n4. Write these three numbers into optimiser.state_dict for that layer.  \nComplexity: O(k r) + 32×5 matmul ≪ 0.02 ms per layer on an A100; independent of model width.  \n\nOptional few-shot recalibration: run SKETCH-NAC for three steps, fit a global scalar γ that rescales all η predicted by Φ by minimising validation loss; freeze γ for the remainder of training.",
+          "comparative_methods": [
+            "SKETCH-NAC"
+          ],
+          "models_to_use": [
+            "Qwen3-0.6B"
+          ],
+          "datasets_to_use": [
+            "gsm8k"
+          ],
+          "hyperparameters_to_search": {
+            "sketch_size_k": "32,64,128",
+            "gamma_recalibration": "0.5-2.0",
+            "K_stats": "50,100,200"
+          }
+        },
+        "experiment_runs": [
+          {
+            "run_id": "proposed-iter1-Qwen3-0.6B-gsm8k",
+            "method_name": "proposed",
+            "model_name": "Qwen3-0.6B",
+            "dataset_name": "gsm8k"
+          },
+          {
+            "run_id": "comparative-1-iter1-Qwen3-0.6B-gsm8k",
+            "method_name": "comparative-1",
+            "model_name": "Qwen3-0.6B",
+            "dataset_name": "gsm8k"
+          }
+        ]
       }
     ]
   }
