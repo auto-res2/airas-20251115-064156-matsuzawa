@@ -29,3 +29,22 @@ These minimum requirements are specific to this allocation attempt and may vary.
 trainable params: 2,293,760 || all params: 598,343,680 || trainable%: 0.3834
 === [TRIAL RUN] PASSED for comparative-1-iter1-Qwen3-0.6B-gsm8k at Sat Nov 15 08:19:01 UTC 2025 ===
 
+=== [UV SYNC] Start at Sat Nov 15 08:20:48 AM UTC 2025 ===
+=== [UV SYNC] Finished successfully at Sat Nov 15 08:20:53 AM UTC 2025 ===
+=== [FULL EXPERIMENT] Start for comparative-1-iter1-Qwen3-0.6B-gsm8k at Sat Nov 15 08:20:53 AM UTC 2025 ===
+[Main] Launching: /home/toma/t-80-8-b-03/_work/airas-20251115-064156-matsuzawa/airas-20251115-064156-matsuzawa/.venv/bin/python3 -u -m src.train run=comparative-1-iter1-Qwen3-0.6B-gsm8k results_dir=.research/iteration1 mode=full
+[wandb]  URL: https://wandb.ai/gengaru617-personal/2025-11-15/runs/comparative-1-iter1-Qwen3-0.6B-gsm8k
+[2025-11-15 08:21:24,326][transformers.configuration_utils][WARNING] - `torch_dtype` is deprecated! Use `dtype` instead!
+[2025-11-15 08:21:31,961][accelerate.utils.modeling][INFO] - Based on the current allocation process, no modules could be assigned to the following devices due to insufficient memory:
+  - 0: 342626816 bytes required
+  - 1: 311164928 bytes required
+  - 2: 311164928 bytes required
+  - 3: 311164928 bytes required
+  - 4: 311164928 bytes required
+  - 5: 311164928 bytes required
+  - 6: 311164928 bytes required
+These minimum requirements are specific to this allocation attempt and may vary. Consider increasing the available memory for these devices to at least the specified minimum, or adjusting the model config.
+trainable params: 2,293,760 || all params: 598,343,680 || trainable%: 0.3834
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mcomparative-1-iter1-Qwen3-0.6B-gsm8k[0m at: [34mhttps://wandb.ai/gengaru617-personal/2025-11-15/runs/comparative-1-iter1-Qwen3-0.6B-gsm8k[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20251115_082117-comparative-1-iter1-Qwen3-0.6B-gsm8k/logs[0m
