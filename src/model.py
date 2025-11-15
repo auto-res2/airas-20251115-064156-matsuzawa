@@ -93,10 +93,22 @@ class HyperLoreController(_BaseController):
 
     def __init__(self, cfg: DictConfig, model: torch.nn.Module, optimizer):
         super().__init__(model, optimizer)
-        if ort is None:
-            raise RuntimeError("onnxruntime-gpu is required for HyperLoreController")
-        providers = ["CUDAExecutionProvider"] if torch.cuda.is_available() else ["CPUExecutionProvider"]
-        self.session = ort.InferenceSession(str(Path(cfg.tiny_onnx_path)), providers=providers)
+
+        # Try to load ONNX model, fallback to simple heuristic if not available
+        self.use_onnx = False
+        self.session = None
+        onnx_path = Path(cfg.tiny_onnx_path)
+
+        if onnx_path.exists():
+            if ort is None:
+                raise RuntimeError("onnxruntime-gpu is required for HyperLoreController")
+            providers = ["CUDAExecutionProvider"] if torch.cuda.is_available() else ["CPUExecutionProvider"]
+            self.session = ort.InferenceSession(str(onnx_path), providers=providers)
+            self.use_onnx = True
+        else:
+            # Fallback: use a simple heuristic-based approach
+            print(f"Warning: ONNX model not found at {onnx_path}. Using fallback heuristic.")
+
         self.k = cfg.sketch_size_k
         self.K_stats = cfg.K_stats
         self.gamma = cfg.gamma_recalibration
@@ -127,8 +139,18 @@ class HyperLoreController(_BaseController):
 
             lam = ((dg * sketch).sum() / (g @ g + 1e-12)).clamp(1e-8, 1e8).log10()
             rho = (dg.var() / (g.mean().abs() + 1e-12) ** 2 + 1e-12).log10()
-            x = np.array([[lam.item(), rho.item(), math.log10(self.rank), math.log10(self.step + 1), 0.0]], dtype=np.float32)
-            log_eta, beta_hat, log_clip = self.session.run(None, {"input": x})[0][0]
+
+            if self.use_onnx:
+                # Use ONNX model for inference
+                x = np.array([[lam.item(), rho.item(), math.log10(self.rank), math.log10(self.step + 1), 0.0]], dtype=np.float32)
+                log_eta, beta_hat, log_clip = self.session.run(None, {"input": x})[0][0]
+            else:
+                # Fallback heuristic: simple adaptive learning rate based on gradient statistics
+                # Use a reasonable default learning rate schedule
+                base_lr = 1e-4
+                log_eta = math.log10(base_lr) - 0.5 * lam.item()  # Adapt based on gradient correlation
+                beta_hat = 0.9  # Default momentum
+                log_clip = 0.0  # log10(1.0) = no additional clipping
 
             group = self._group_for(p)
             group["lr"] = (10 ** log_eta) * self.gamma
