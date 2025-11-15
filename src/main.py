@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import os
 from pathlib import Path
 
 import hydra
@@ -33,6 +34,11 @@ def main(cfg: DictConfig):
     results_dir.mkdir(parents=True, exist_ok=True)
     OmegaConf.save(cfg, results_dir / "effective_config.yaml")
 
+    # Add project root to PYTHONPATH for subprocess
+    project_root = Path(__file__).resolve().parent.parent
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(project_root) + os.pathsep + env.get("PYTHONPATH", "")
+
     cmd = [
         sys.executable,
         "-u",
@@ -43,7 +49,7 @@ def main(cfg: DictConfig):
         f"mode={cfg.mode}",
     ]
     print("[Main] Launching:", " ".join(cmd))
-    subprocess.run(cmd, check=True)
+    subprocess.run(cmd, check=True, env=env)
 
 
 if __name__ == "__main__":
