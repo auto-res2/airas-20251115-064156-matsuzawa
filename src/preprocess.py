@@ -50,10 +50,13 @@ def build_datasets(cfg: DictConfig, tokenizer: PreTrainedTokenizer) -> Tuple:
         tok_prompt = tokenizer(batch["prompt"], truncation=True, max_length=cfg.dataset.max_length)[
             "input_ids"
         ]
-        labels = tok_full["input_ids"].copy()
+        # Create a proper deep copy of input_ids for labels
+        import copy
+        labels = copy.deepcopy(tok_full["input_ids"])
         for i, p_ids in enumerate(tok_prompt):
             n = len(p_ids)
-            labels[i][:n] = [-100] * n  # mask prompt tokens
+            for j in range(n):
+                labels[i][j] = -100  # mask prompt tokens
         tok_full["labels"] = labels
         return tok_full
 
