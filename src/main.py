@@ -14,6 +14,7 @@ def main(cfg: DictConfig):
         raise FileNotFoundError(run_cfg_path)
     run_cfg = OmegaConf.load(run_cfg_path)
 
+    OmegaConf.set_struct(cfg, False)
     cfg = OmegaConf.merge(cfg, run_cfg)
     cfg.run_id = cfg.get("run_id", run_cfg.get("run_id"))
 
