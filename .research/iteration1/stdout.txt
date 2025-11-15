@@ -1,0 +1,12 @@
+=== [UV SYNC] Start at Sat Nov 15 08:14:48 AM UTC 2025 ===
+=== [UV SYNC] Finished successfully at Sat Nov 15 08:14:51 AM UTC 2025 ===
+=== [TRIAL RUN] Start for proposed-iter1-Qwen3-0.6B-gsm8k at Sat Nov 15 08:14:51 AM UTC 2025 ===
+[Main] TRIAL mode activated (fast checks)
+[Main] Launching: /home/toma/pt80-1-a-29/_work/airas-20251115-064156-matsuzawa/airas-20251115-064156-matsuzawa/.venv/bin/python3 -u -m src.train run=proposed-iter1-Qwen3-0.6B-gsm8k results_dir=.research/iteration1 mode=trial
+[Mode] TRIAL – quick check (1 epoch, limited data, wandb disabled)
+[2025-11-15 08:15:19,120][transformers.configuration_utils][WARNING] - `torch_dtype` is deprecated! Use `dtype` instead!
+[2025-11-15 08:15:30,732][accelerate.utils.modeling][INFO] - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+trainable params: 2,293,760 || all params: 598,343,680 || trainable%: 0.3834
+Warning: ONNX model not found at tiny.onnx. Using fallback heuristic.
+=== [TRIAL RUN] PASSED for proposed-iter1-Qwen3-0.6B-gsm8k at Sat Nov 15 08:16:04 AM UTC 2025 ===
+
